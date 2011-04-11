@@ -8,6 +8,15 @@ ExternalProject_Add(avogadro
   CMAKE_ARGS
     -DCMAKE_INSTALL_PREFIX:PATH=${AvogadroSquared_BINARY_DIR}/prefix
     ${avogadro_build_vars}
+    -DAvogadro_USE_SYSTEM_OPENQUBE:BOOL=ON
     -DENABLE_TESTS:BOOL=OFF
     -DENABLE_PYTHON:BOOL=OFF
   DEPENDS zlib openbabel openqube)
+
+ExternalProject_Add_Step(avogadro forcebuild
+  COMMAND ${CMAKE_COMMAND} -E remove
+    ${CMAKE_CURRENT_BUILD_DIR}/avogadro-prefix/src/avogadro-stamp/avogadro-build
+  DEPENDEES configure
+  DEPENDERS build
+  ALWAYS 1
+  )
