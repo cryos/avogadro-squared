@@ -11,6 +11,13 @@ ExternalProject_Add(openbabel
     -DENABLE_TESTS:BOOL=OFF
   DEPENDS zlib libxml2)
 
+ExternalProject_Add_Step(openbabel forcebuild
+  COMMAND ${CMAKE_COMMAND} -E remove
+    ${CMAKE_CURRENT_BUILD_DIR}/openbabel-prefix/src/openbabel-stamp/openbabel-build
+  DEPENDEES configure
+  DEPENDERS build
+  ALWAYS 1
+  )
 
 set(OPENBABEL2_INCLUDE_DIR "${zlib_install}/include/openbabel-2.0")
 if(WIN32)
