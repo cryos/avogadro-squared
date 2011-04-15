@@ -9,6 +9,7 @@ ExternalProject_Add(openbabel
     -DCMAKE_INSTALL_PREFIX:PATH=${AvogadroSquared_BINARY_DIR}/prefix
     ${avogadro_build_vars}
     -DENABLE_TESTS:BOOL=OFF
+	-DOB_USE_PREBUILT_BINARIES:BOOL=OFF
   DEPENDS zlib libxml2)
 
 ExternalProject_Add_Step(openbabel forcebuild
