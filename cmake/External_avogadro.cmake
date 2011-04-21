@@ -11,6 +11,7 @@ ExternalProject_Add(avogadro
     -DAvogadro_USE_SYSTEM_OPENQUBE:BOOL=ON
     -DENABLE_TESTS:BOOL=OFF
     -DENABLE_PYTHON:BOOL=OFF
+    -DENABLE_DEPRECATED_INSTALL_RULES:BOOL=ON
   DEPENDS zlib openbabel openqube)
 
 ExternalProject_Add_Step(avogadro forcebuild

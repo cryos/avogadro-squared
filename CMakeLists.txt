@@ -57,6 +57,7 @@ list(APPEND avogadro_build_vars
 include(External_openqube)
 
 list(APPEND avogadro_build_vars
-  "-DOpenQube_DIR:PATH=${AvogadroSquared_BINARY_DIR}/openqube")
+  "-DOpenQube_DIR:PATH=${AvogadroSquared_BINARY_DIR}/openqube"
+  "-DCMAKE_PREFIX_PATH:PATH=${AvogadroSquared_BINARY_DIR}/prefix")
 
 include(External_avogadro)
