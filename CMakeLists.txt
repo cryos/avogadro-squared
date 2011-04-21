@@ -10,19 +10,36 @@ include(ExternalProject)
 include(avogadro_tarballs)
 include(library_suffix)
 
-# Clear our CMake variables to pass into external projects
-set(avogadro_build_vars "")
+# Add options to use system libraries for each of the dependencies
+option(USE_SYSTEM_QT "Should we use the system Qt?" ON)
+option(USE_SYSTEM_ZLIB "Should we use the system zlib?" OFF)
+option(USE_SYSTEM_LIBXML2 "Should we use the system LIBXML2?" OFF)
+
+# External Qt build if requested
+if(USE_SYSTEM_QT)
+  find_package(Qt4 ${qt_version_min} REQUIRED)
+else()
+  include(External_Qt)
+endif()
+set(avogadro_build_vars "-DQT_QMAKE_EXECUTABLE=${QT_QMAKE_EXECUTABLE}")
 
 # Now build zlib
-include(External_zlib)
+if(USE_SYSTEM_ZLIB)
+  find_package(ZLIB REQUIRED)
+else()
+  include(External_zlib)
+endif()
 # Append the relevant variables to our initial cache
 list(APPEND avogadro_build_vars
   "-DZLIB_INCLUDE_DIR:PATH=${ZLIB_INCLUDE_DIR}"
   "-DZLIB_LIBRARY:PATH=${ZLIB_LIBRARY}")
 
 # Now build libxml2
-include(External_libxml2)
-
+if(USE_SYSTEM_LIBXML2)
+  find_package(LIBXML2 REQUIRED)
+else()
+  include(External_libxml2)
+endif()
 list(APPEND avogadro_build_vars
   "-DLIBXML2_INCLUDE_DIR:PATH=${LIBXML2_INCLUDE_DIR}"
   "-DLIBXML2_LIBRARIES:PATH=${LIBXML2_LIBRARIES}")

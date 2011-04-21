@@ -1,0 +1,5 @@
+execute_process(COMMAND @qt_source@/configure.exe
+  -opensource -debug-and-release -nomake examples
+  -nomake demos>
+  WORKING_DIRECTORY @qt_source@
+  INPUT_FILE "@AvogadroSquared_SOURCE_DIR@/cmake/win_config_qt_input.txt")

@@ -12,10 +12,11 @@ set(boost_url
 set(boost_md5 "f09997a2dad36627579b3e2215c25a48")
 
 # Qt
-set(qt_version 4.7.1)
+set(qt_version 4.7.2)
+set(qt_version_min 4.6)
 set(qt_url
   "http://get.qt.nokia.com/qt/source/qt-everywhere-opensource-src-${qt_version}.tar.gz")
-set(qt_md5 "3a2f25b9b115037277f4fb759194a7a5")
+set(qt_md5 "66b992f5c21145df08c99d21847f4fdb")
 
 # Zlib
 set(zlib_version 1.2.5)
@@ -28,10 +29,9 @@ set(libxml2_url "ftp://xmlsoft.org/libxml2/libxml2-${libxml2_version}.tar.gz")
 set(libxml2_md5 8127a65e8c3b08856093099b52599c86)
 
 # List of Titan TPLs with externally downloaded source
-set(avogadro_external_sources libxml2 zlib)
+set(avogadro_external_sources libxml2 zlib qt)
 
 # Iterate through our URLs, and create local filenames
-set(titan_files )
 foreach(source ${avogadro_external_sources})
   set(url ${${source}_url})
   string(REGEX MATCH "[^/]*$" fname "${url}")
