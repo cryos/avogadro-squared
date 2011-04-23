@@ -15,9 +15,7 @@ ExternalProject_Add(avogadro
   DEPENDS zlib openbabel openqube)
 
 ExternalProject_Add_Step(avogadro forcebuild
-  COMMAND ${CMAKE_COMMAND} -E remove
-    ${CMAKE_CURRENT_BUILD_DIR}/avogadro-prefix/src/avogadro-stamp/avogadro-build
-  DEPENDEES configure
-  DEPENDERS build
+  COMMAND ${CMAKE_COMMAND} -E echo "Force build of avogadro"
+  DEPENDERS configure
   ALWAYS 1
   )
