@@ -21,7 +21,12 @@ if(USE_SYSTEM_QT)
 else()
   include(External_Qt)
 endif()
-set(avogadro_build_vars "-DQT_QMAKE_EXECUTABLE=${QT_QMAKE_EXECUTABLE}")
+set(avogadro_build_vars "-DQT_QMAKE_EXECUTABLE:FILEPATH=${QT_QMAKE_EXECUTABLE}")
+
+if(CMAKE_BUILD_TYPE)
+  list(APPEND avogadro_build_vars
+    "-DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE}")
+endif()
 
 # Now build zlib
 if(USE_SYSTEM_ZLIB)
