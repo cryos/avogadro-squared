@@ -61,3 +61,17 @@ list(APPEND avogadro_build_vars
   "-DCMAKE_PREFIX_PATH:PATH=${AvogadroSquared_BINARY_DIR}/prefix")
 
 include(External_avogadro)
+
+list(APPEND avogadro_build_vars
+  "-DAvogadro_DIR:PATH=${AvogadroSquared_BINARY_DIR}/avogadro")
+
+# Should we use the optional VTK components? If so, find them and pass it down
+option(Avogadro_USE_VTK "Use optional VTK components?" OFF)
+if(Avogadro_USE_VTK)
+  find_package(VTK REQUIRED)
+  list(APPEND avogadro_build_vars
+    "-DVTK_DIR:PATH=${VTK_DIR}")
+  message("avogadro_build_vars: ${avogadro_build_vars}")
+
+  include(External_avogadrovtk)
+endif()

@@ -10,3 +10,6 @@
 [submodule "openqube"]
 	path = openqube
 	url = git://github.com/cryos/openqube.git
+[submodule "avogadrovtk"]
+	path = avogadrovtk
+	url = git://github.com/cryos/AvogadroVTK.git
