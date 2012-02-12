@@ -19,9 +19,9 @@ set(qt_url
 set(qt_md5 "66b992f5c21145df08c99d21847f4fdb")
 
 # Zlib
-set(zlib_version 1.2.5)
+set(zlib_version 1.2.6)
 set(zlib_url "http://zlib.net/zlib-${zlib_version}.tar.gz")
-set(zlib_md5 c735eab2d659a96e5a594c9e8541ad63)
+set(zlib_md5 618e944d7c7cd6521551e30b32322f4a)
 
 # libxml2
 set(libxml2_version 2.7.8)
