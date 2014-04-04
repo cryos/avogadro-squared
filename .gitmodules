@@ -6,7 +6,7 @@
 	url = git://github.com/cryos/eigen.git
 [submodule "openbabel"]
 	path = openbabel
-	url = git://github.com/cryos/openbabel
+	url = git://github.com/openbabel/openbabel.git
 [submodule "openqube"]
 	path = openqube
 	url = git://github.com/cryos/openqube.git
