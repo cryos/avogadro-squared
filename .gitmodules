@@ -1,15 +1,15 @@
 [submodule "avogadro"]
 	path = avogadro
-	url = git://github.com/cryos/avogadro.git
+	url = https://github.com/cryos/avogadro.git
 [submodule "eigen"]
 	path = eigen
-	url = git://github.com/cryos/eigen.git
+	url = https://github.com/cryos/eigen.git
 [submodule "openbabel"]
 	path = openbabel
-	url = git://github.com/openbabel/openbabel.git
+	url = https://github.com/openbabel/openbabel.git
 [submodule "openqube"]
 	path = openqube
-	url = git://github.com/cryos/openqube.git
+	url = https://github.com/cryos/openqube.git
 [submodule "avogadrovtk"]
 	path = avogadrovtk
-	url = git://github.com/cryos/AvogadroVTK.git
+	url = https://github.com/cryos/AvogadroVTK.git
